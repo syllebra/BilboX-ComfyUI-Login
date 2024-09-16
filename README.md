@@ -1,3 +1,6 @@
+# BilboX-ComfyUI-Login
+A fork for custom UI
+
 # ComfyUI-Login
 
 This custom node uses a simple password to protect ComfyUI.
