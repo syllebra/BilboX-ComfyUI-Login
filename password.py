@@ -195,7 +195,7 @@ async def process_request(request, handler):
 @web.middleware
 async def check_login_status(request: web.Request, handler):
     # Skip authentication for specific paths
-    if request.path == '/login' or request.path.endswith('.css') or request.path.endswith('.css.map') or request.path.endswith('.js') or request.path.endswith('.ico'):
+    if request.path == '/login' or request.path.endswith('.css') or request.path.endswith('.css.map') or request.path.endswith('.js') or request.path.endswith('.ico') or request.path.endswith('.png'):
         return await handler(request)
 
     # Load the token if not already loaded
