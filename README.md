@@ -1,20 +1,13 @@
 # BilboX-ComfyUI-Login
-A fork for custom UI
-
-# ComfyUI-Login
-
 This custom node uses a simple password to protect ComfyUI.
+
+A fork for custom UI with specific UI and visuals. Some features like guest mode  and upload incognito have been removed.
+
 
 ## First thing first
 
 Please be aware that absolute security does not exist. This login node offers only basic
 protection for ComfyUI. Use it at your own risk.
-
-With that in mind, here is a freshly installed ComfyUI instance with ComfyUI-Login on a new Linux system with an RTX 4090 GPU:
-
-http://118.180.21.248:47743/login
-
-If you find a way to compromise it, please let me know. I'll address the issue and share the server with you.
 
 ## How to use
 
@@ -81,30 +74,8 @@ You have two options to validate your call:
 
 Feel free to modify `login.html` if you want to personalize your login page.
 
-# Upload Image Incognito
-
-This package now contains a node that contribute to privacy.
-
-![Upload Image Incognito node](images/Upload_Image_Incognito.png)
-
-The image will be encrypted and uploaded to the server. The key for decryption is generated randomly each time and will never be saved on disk or on the server.
-
-The image will be automatically deleted by default.
-
-Unlike the default "Load Image" node, where the image is read from disk every time, this node keeps the image in cache and deletes the physical file as soon as the first prompt runs.
-
 # Free Memory When Leaving
 
 The browser will send a `/free` POST request to the server when the user is leaving, logging out, or refreshing the page.
 
 This is handled purely in JavaScript. If you prefer not to use this feature, simply delete the file `js/free_memory.js`.
-
-# Guest Mode (Working In Progress)
-
-If you place a `GUEST_MODE` file in the `./login/` folder alongside the `PASSWORD` file, you can activate the experimental `guest mode` on the login page. This mode allows anonymous guests to use your ComfyUI to generate images, but they won't be able to change any settings or install new custom nodes.
-
-<img src="images/guest_mode.png" width="213">
-
-Utilizing this `guest mode` enables researchers to demonstrate their new methods using ComfyUI without concern that the system will be altered by guests.
-
-This `Guest Mode` is still a WIP, and should be used with caution.
