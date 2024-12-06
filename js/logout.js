@@ -26,17 +26,23 @@ app.registerExtension({
 		}
 
 		// New interface
-		const side_tb = document.querySelector(".side-tool-bar-end");
-		const params_button = document.querySelector(".pi-cog");
-		if(side_tb && params_button)
-		{
-			const logoutButton = params_button.parentElement.cloneNode(true);
-			logoutButton.id = "bxRebootButtonNew";
-			let shuticon = logoutButton.querySelector(".pi-cog");
-			shuticon.classList.remove("pi-cog");
-			shuticon.classList.add("pi-sign-out");
-			side_tb.append(logoutButton);
-			logoutButton.onclick = () => {logout()}
-		}		
+		function add_button_new_interface() {
+			const side_tb = document.querySelector(".side-tool-bar-end");
+			const params_button = document.querySelector(".pi-cog");
+			if(side_tb && params_button)
+			{
+				const logoutButton = params_button.parentElement.cloneNode(true);
+				logoutButton.id = "bxRebootButtonNew";
+				let shuticon = logoutButton.querySelector(".pi-cog");
+				shuticon.classList.remove("pi-cog");
+				shuticon.classList.add("pi-sign-out");
+				side_tb.append(logoutButton);
+				logoutButton.onclick = () => {logout()}
+			}
+			else
+				setTimeout(add_button_new_interface, 1000);
+		}
+
+		add_button_new_interface();
 	},
 });
